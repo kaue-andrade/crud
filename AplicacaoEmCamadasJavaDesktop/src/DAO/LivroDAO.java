@@ -29,7 +29,7 @@ public class LivroDAO {
             comando.setString(2, livro.getAutor());
             comando.setString(3, livro.getEditora());
             comando.setInt(4, livro.getAno());
-            comando.setLong(5, livro.getPaginas());
+            comando.setInt(5, livro.getPaginas());
             comando.setString(6, livro.getIsbn());
 
             comando.executeUpdate();
@@ -64,39 +64,6 @@ public class LivroDAO {
         return listaDeLivro;
     }
 
-    /*public Livro pesquisar(Livro livro) throws SQLException {
-
-        try (Connection conexao = bd.conectar(); 
-             PreparedStatement comando = conexao.prepareStatement(
-             "SELECT titulo, ano, paginas, autores, preco FROM livro WHERE id = ?")
-            ) 
-        {
-            comando.setInt(1, livro.getId());
-            ResultSet tabela = comando.executeQuery();
-
-            boolean existeLivro = false;
-            
-            if (tabela.next()) {
-            
-                livro.setId(tabela.getInt("id"));
-                livro.setTitulo(tabela.getString("titulo"));
-                livro.setAno(tabela.getInt("ano"));
-                livro.setPaginas(tabela.getInt("paginas"));
-                livro.setAutores(tabela.getString("autores"));
-                livro.setPreco(tabela.getDouble("preco"));
-                
-                existeLivro = true;
-            }
-            
-            if(!existeLivro)
-            {
-                livro.setId(0);
-            }
-        }
-       
-        return livro;
-    }*/
-
     public void alterar(Livro livro) throws SQLException {
         try (Connection conexao = bd.conectar(); 
              PreparedStatement comando = conexao.prepareStatement(
@@ -109,6 +76,7 @@ public class LivroDAO {
             comando.setInt(4, livro.getAno());
             comando.setInt(5, livro.getPaginas());
             comando.setString(6, livro.getIsbn());
+            comando.setInt(7, livro.getId());
 
             comando.executeUpdate();
         }
