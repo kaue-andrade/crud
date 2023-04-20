@@ -56,7 +56,7 @@ public class TelaDeCadastroDeLivroGUI extends javax.swing.JFrame {
         lblTitulo.setText("Título:");
 
         lblAutor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        lblAutor.setText("Autor(a):");
+        lblAutor.setText("Autor:");
 
         lblEditora.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblEditora.setText("Editora:");
